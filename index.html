@@ -8,32 +8,29 @@
   <style>
     html,body{height:100%;margin:0}
     .hud{position:fixed;left:8px;top:8px;background:rgba(0,0,0,.5);color:#fff;padding:8px 10px;border-radius:10px;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;font-size:13px}
-    .hud a{color:#9fdcff}
   </style>
 </head>
 <body>
   <div class="hud">
-    <strong>OBJ Viewer — A-Frame</strong><br>
-    Files expected at <code>/assets/model.obj</code> and optional <code>/assets/model.mtl</code>.<br>
-    Use mouse/touch to orbit. Pinch to zoom on mobile.
+    <strong>OBJ Viewer</strong> — loading <code>assets/model.obj</code><br>
+    Tip: Adjust <code>scale</code> if model appears tiny/huge.
   </div>
 
   <a-scene renderer="antialias: true" background="color: #ECECEC">
     <a-assets>
       <a-asset-item id="obj" src="assets/model.obj"></a-asset-item>
-      <a-asset-item id="mtl" src="assets/model.mtl"></a-asset-item>
     </a-assets>
 
-    <a-entity obj-model="obj: #obj; mtl: #mtl"
+    <!-- Start small for CAD-sized OBJs; try 0.1 or 1 if needed -->
+    <a-entity obj-model="obj: #obj"
               position="0 1.2 -3"
               rotation="0 30 0"
-              scale="1 1 1"></a-entity>
+              scale="0.01 0.01 0.01"></a-entity>
 
     <a-entity light="type: ambient; intensity: 0.6"></a-entity>
     <a-entity light="type: directional; intensity: 1" position="1 2 1"></a-entity>
-    <a-entity light="type: directional; intensity: 0.6" position="-2 1 0"></a-entity>
-
     <a-entity camera look-controls position="0 1.6 0"></a-entity>
   </a-scene>
 </body>
 </html>
+
